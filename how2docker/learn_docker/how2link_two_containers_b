@@ -1,0 +1,316 @@
+docker run -d -P --name redis redis
+docker run --link redis -i -t ubuntu /bin/bash
+docker run -d --link redis --name web rickfast/oreilly-simple-web-app
+docker kill web
+docker rm web
+docker run -p 4567:4567 -d --link redis --name web rickfast/oreilly-simple-web-app
+docker run -P -d --link redis --name web rickfast/oreilly-simple-web-app
+docker port web
+docker ps -l
+docker inspect redis
+docker run -d -e "REDIS_PORT_6379_TCP_ADDR=172.17.0.4" --name web -p 4567:4567 rickfast/oreilly-simple-web-app
+docker logs -f web
+
++++++++++++++++++++++++++++++++++
+
+root@75f53926a0a2:/# env
+REDIS_ENV_REDIS_DOWNLOAD_URL=http://download.redis.io/releases/redis-3.2.6.tar.gz
+REDIS_PORT_6379_TCP_PROTO=tcp
+HOSTNAME=75f53926a0a2
+REDIS_ENV_REDIS_DOWNLOAD_SHA1=0c7bc5c751bdbc6fabed178db9cdbdd948915d1b
+TERM=xterm
+REDIS_NAME=/thirsty_jepsen/redis
+REDIS_PORT_6379_TCP_ADDR=172.17.0.4
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+REDIS_PORT_6379_TCP_PORT=6379
+REDIS_ENV_GOSU_VERSION=1.7
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+PWD=/
+REDIS_PORT_6379_TCP=tcp://172.17.0.4:6379
+SHLVL=1
+HOME=/root
+REDIS_PORT=tcp://172.17.0.4:6379
+REDIS_ENV_REDIS_VERSION=3.2.6
+_=/usr/bin/env
+root@75f53926a0a2:/#
+
++++++++++++++++++++++++++++++++++++++++++++++++++
+REDIS_PORT_6379_TCP_ADDR=172.17.0.4
+REDIS_PORT_6379_TCP=tcp://172.17.0.4:6379
++++++++++++++++++++++++++++++++++++++++++++++++++
+
+docker run -d --link redis --name web rickfast/oreilly-simple-web-app
+
++++++++++++++++++++++++++++++++++++++++++++++++++
+
+docker run -d --link redis --name web rickfast/oreilly-simple-web-app
+
+docker kill web
+docker rm web
+
++++++++++++++++++++++++++++++++++++++++++++++++++
+
+docker run -p 4567:4567 -d --link redis --name web rickfast/oreilly-simple-web-app
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++
+use -P to map to random available port on host:
+docker run -P -d --link redis --name web rickfast/oreilly-simple-web-app
+
+safari@zzyu02:~$ docker run -P -d --link redis --name web rickfast/oreilly-simple-web-app
+0e1cc83bc1d15814e2f234881f838d798590ceae1e69f923366e3e7b8f5c545e
+safari@zzyu02:~$ docker ps -l
+CONTAINER ID        IMAGE                             COMMAND             CREATED             STATUS              PORTS                     NAMES
+0e1cc83bc1d1        rickfast/oreilly-simple-web-app   "ruby app.rb"       5 seconds ago       Up 4 seconds        0.0.0.0:32769->4567/tcp   web
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+docker port web
+docker ps -l
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+docker inspect redis
+
+safari@zzyu02:~$ docker inspect redis
+[
+    {
+        "Id": "bca98def1b7ac46697567e9b98202237b6606db9c0c7456c577c7a05ac029b04",
+        "Created": "2017-01-13T20:06:04.326288871Z",
+        "Path": "docker-entrypoint.sh",
+        "Args": [
+            "redis-server"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 26879,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2017-01-13T20:06:04.972872633Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:d59dc9e6d0bf135e969796ba00c9f458e3b65c47d8a7349a3d6e0974ec02e103",
+        "ResolvConfPath": "/var/lib/docker/containers/bca98def1b7ac46697567e9b98202237b6606db9c0c7456c577c7a05ac029b04/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/bca98def1b7ac46697567e9b98202237b6606db9c0c7456c577c7a05ac029b04/hostname",
+        "HostsPath": "/var/lib/docker/containers/bca98def1b7ac46697567e9b98202237b6606db9c0c7456c577c7a05ac029b04/hosts",
+        "LogPath": "/var/lib/docker/containers/bca98def1b7ac46697567e9b98202237b6606db9c0c7456c577c7a05ac029b04/bca98def1b7ac46697567e9b98202237b6606db9c0c7456c577c7a05ac029b04-json.log",
+        "Name": "/redis",
+        "RestartCount": 0,
+        "Driver": "overlay",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": true,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DiskQuota": 0,
+            "KernelMemory": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": -1,
+            "OomKillDisable": false,
+            "PidsLimit": 0,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0
+        },
+        "GraphDriver": {
+            "Name": "overlay",
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay/30c142bfebc7a5014803c0a3a8053e749068cb4f3e17d35e8a4b14628c8738da/root",
+                "MergedDir": "/var/lib/docker/overlay/760a3d13625265d114dae2f30d4cd4c718e3d670df6059de98462a8de4c72a90/merged",
+                "UpperDir": "/var/lib/docker/overlay/760a3d13625265d114dae2f30d4cd4c718e3d670df6059de98462a8de4c72a90/upper",
+                "WorkDir": "/var/lib/docker/overlay/760a3d13625265d114dae2f30d4cd4c718e3d670df6059de98462a8de4c72a90/work"
+            }
+        },
+        "Mounts": [
+            {
+                "Name": "952267fe3d014961fca6345cba2aa66f9379ba50bfebae0a4677871ef0595f68",
+                "Source": "/var/lib/docker/volumes/952267fe3d014961fca6345cba2aa66f9379ba50bfebae0a4677871ef0595f68/_data",
+                "Destination": "/data",
+                "Driver": "local",
+                "Mode": "",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "bca98def1b7a",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "6379/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "GOSU_VERSION=1.7",
+                "REDIS_VERSION=3.2.6",
+                "REDIS_DOWNLOAD_URL=http://download.redis.io/releases/redis-3.2.6.tar.gz",
+                "REDIS_DOWNLOAD_SHA1=0c7bc5c751bdbc6fabed178db9cdbdd948915d1b"
+            ],
+            "Cmd": [
+                "redis-server"
+            ],
+            "Image": "redis",
+            "Volumes": {
+                "/data": {}
+            },
+            "WorkingDir": "/data",
+            "Entrypoint": [
+                "docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "b0ba6d7c9c0ab4eb72a6cbb8cab239ad50ad1286cc64d43bf2b900ac10dbb51d",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "6379/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "32768"
+                    }
+                ]
+            },
+            "SandboxKey": "/var/run/docker/netns/b0ba6d7c9c0a",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "bc3069a1136332fcc98fc4b1e006ee83450d4e70a24b20c8ec36209a428970ef",
+            "Gateway": "172.17.0.1",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "172.17.0.4",
+            "IPPrefixLen": 16,
+            "IPv6Gateway": "",
+            "MacAddress": "02:42:ac:11:00:04",
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "NetworkID": "70c7bb91a3b358ac6176611df59599a4b317079c3453f8a27d1ed57f09f64b88",
+                    "EndpointID": "bc3069a1136332fcc98fc4b1e006ee83450d4e70a24b20c8ec36209a428970ef",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.4",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:ac:11:00:04"
+                }
+            }
+        }
+    }
+]
+safari@zzyu02:~$
+
+++++++++++++++++++++++++++++++++++++++++++++++
+
+"IPAddress": "172.17.0.4",
+
+docker run -d -e "REDIS_PORT_6379_TCP_ADDR=172.17.0.4" --name web -p 4567:4567 rickfast/oreilly-simple-web-app
+
+safari@zzyu02:~$ curl http://127.0.0.1:4567/
+<h1>Dockerized Web Application!</h1><p>The data in the Redis database is yann</p>safari@zzyu02:~$
+
+curl http://127.0.0.1:4567/load/NewData
+
+curl http://127.0.0.1:4567/
+OKsafari@zzyu02:~$ curl http://127.0.0.1:4567/
+<h1>Dockerized Web Application!</h1><p>The data in the Redis database is NewData</p>safari@zzyu02:~$
+
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++
+
+safari@zzyu02:~$ docker logs -f web
+[2017-01-13 21:34:40] INFO  WEBrick 1.3.1
+[2017-01-13 21:34:40] INFO  ruby 2.2.4 (2015-12-16) [x86_64-linux-musl]
+== Sinatra (v1.4.7) has taken the stage on 4567 for development with backup from WEBrick
+[2017-01-13 21:34:40] INFO  WEBrick::HTTPServer#start: pid=1 port=4567
+172.17.0.1 - - [13/Jan/2017:21:34:52 +0000] "GET / HTTP/1.1" 200 81 0.0218
+172.17.0.1 - - [13/Jan/2017:21:34:52 UTC] "GET / HTTP/1.1" 200 81
+- -> /
+172.17.0.1 - - [13/Jan/2017:21:35:16 +0000] "GET /load/NewData HTTP/1.1" 200 2 0.0016
+172.17.0.1 - - [13/Jan/2017:21:35:16 UTC] "GET /load/NewData HTTP/1.1" 200 2
+- -> /load/NewData
+172.17.0.1 - - [13/Jan/2017:21:35:33 +0000] "GET /load/NewData HTTP/1.1" 200 2 0.0016
+172.17.0.1 - - [13/Jan/2017:21:35:33 UTC] "GET /load/NewData HTTP/1.1" 200 2
+- -> /load/NewData
+172.17.0.1 - - [13/Jan/2017:21:35:41 +0000] "GET / HTTP/1.1" 200 84 0.0036
+172.17.0.1 - - [13/Jan/2017:21:35:41 UTC] "GET / HTTP/1.1" 200 84
+- -> /
+
+
+

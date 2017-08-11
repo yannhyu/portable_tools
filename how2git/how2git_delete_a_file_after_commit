@@ -1,0 +1,12 @@
+git rm bin/insurance2/generate_166_release_file_to_athena.py
+git commit --amend
+
+
+
+If this is your last commit and you want to completely delete the file from your local and the remote repository, you can:
+
+remove the file 
+git rm <file>
+
+commit with amend flag: 
+git commit --amend.

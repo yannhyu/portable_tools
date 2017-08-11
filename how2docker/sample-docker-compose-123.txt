@@ -1,0 +1,42 @@
+web:
+  image: php:7.0-apache
+  ports:
+    - "8080:80"
+  volumes:
+    - .:/var/www/html
+    - ./dockerconfig/virtualhosts.conf:/etc/apache2/sites-enabled/virtualhosts.conf
+  links:
+    - mysql
+
+
+mysql:
+  image: mysql:5.7
+  ports:
+    - "3307:3306"
+  environment:
+    MYSQL_ROOT_PASSWORD: 123456
+    MYSQL_USER: dev
+    MYSQL_PASSWORD: 123456
+    MYSQL_DATABASE: mydb
+
++++++++++++++++++++++++++++++++++++++++++++++
+
+
+<VirtualHost *:80>
+    ServerName localhost
+    ServerAlias www.example.com
+    DocumentRoot /var/www/html/web
+    DirectoryIndex index.php
+    <Directory /var/www/html/web>
+        AllowOverride None
+        Require all granted
+        Allow from all
+        Options FollowSymlinks
+        <IfModule mod_rewrite.c>
+            Options -MultiViews
+            RewriteEngine On
+            RewriteCond %{REQUEST_FILENAME} !-f
+            RewriteRule ^(.*)$ index.php [QSA,L]
+        </IfModule>
+    </Directory>
+</VirtualHost>

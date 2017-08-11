@@ -1,0 +1,32 @@
+
+
+It’s also common to add a last command, like this:
+
+$ git config --global alias.last 'log -1 HEAD'
+
++++++++++++++++++++++++++++++++++++++++++++++
+$ git config --global alias.unstage 'reset HEAD --'
+This makes the following two commands equivalent:
+
+$ git unstage fileA
+$ git reset HEAD -- fileA
++++++++++++++++++++++++++++++++++++++++++++++
+
+$ git config --global alias.co checkout
+$ git config --global alias.br branch
+$ git config --global alias.ci commit
+$ git config --global alias.st status
++++++++++++++++++++++++++++++++++++++++++++++
+$ git config --global alias.st status
+
+$ git config alias.st status 
+
+git config alias command. Execute the following in a Git repository:
+git config alias.ci commit
+
+For global alias:
+git config --global alias.ci commit
+
++++++++++++++++++++++++++++++++++++++++++++++
+
+$ git config --global alias.visual '!gitk'

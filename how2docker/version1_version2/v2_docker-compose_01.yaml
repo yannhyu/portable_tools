@@ -1,0 +1,17 @@
+version: ‘2’
+services:
+ dbpostgres:
+  image: postgres:9.4 #define the image to get
+  volumes_from:
+   — container:dbstore #this is a container already defined
+  ports:
+   — “5432:5432”
+ express-app-container:
+  build: .
+  image: express-app #assign a name to the built image
+  ports:
+   — “3000:3000”
+  volumes:
+   — ./:/app
+  links:
+   — dbpostgres

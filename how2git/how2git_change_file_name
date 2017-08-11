@@ -1,0 +1,3 @@
+git mv generate_311_good_shepherd_notes_report.py generate_311_goodshepherd_notes_report.py
+
+git mv bin/insurance2/generate_311_good_shepherd_notes_report.py bin/insurance2/generate_311_goodshepherd_notes_report.py

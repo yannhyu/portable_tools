@@ -1,0 +1,37 @@
+git branch --all
+
+git branch -a
+
+git branch -r
+
+git branch -vv  [ to show which branch is tracking what ... git ]
+
+git remote show origin
+
+git branch -b <new branch>
+
+git status
+
+git log --oneline
+
+
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+yann.yu@mllxv-yu:~/dev/shared_modules$ git remote
+origin
+yann.yu@mllxv-yu:~/dev/shared_modules$ git remote show origin
+Password for 'https://yann.yu@version.medlytix.org': 
+* remote origin
+  Fetch URL: https://yann.yu@version.medlytix.org/scm/med/shared_modules.git
+  Push  URL: https://yann.yu@version.medlytix.org/scm/med/shared_modules.git
+  HEAD branch: master
+  Remote branches:
+    fucked_master tracked
+    master        tracked
+    true_master   tracked
+  Local branch configured for 'git pull':
+    master merges with remote master
+  Local ref configured for 'git push':
+    master pushes to master (up to date)

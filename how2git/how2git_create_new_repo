@@ -1,0 +1,24 @@
+…or create a new repository on the command line
+
+echo "# datapipelines" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/yannhyu/datapipelines.git
+git push -u origin master
+
+
+…or push an existing repository from the command line
+
+git remote add origin https://github.com/yannhyu/datapipelines.git
+git push -u origin master
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+yann.yu@mllxv-yu:celery_n_redis$ pwd
+/home/yann.yu/workspace/pythoncode/celery_n_redis
+
+git init
+git cm 'first commit'
+git remote add origin https://github.com/yannhyu/celery_n_redis.git
+git push -u origin master

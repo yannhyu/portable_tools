@@ -1,0 +1,7 @@
+For a list of files to be pushed, run:
+
+git diff --stat --cached [remote/branch]
+
+example:
+
+git diff --stat --cached origin/master

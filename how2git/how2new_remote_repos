@@ -1,0 +1,45 @@
+https://github.com/yannhyu/gittrain.git
+
+
+git remote add origin https://github.com/yannhyu/gittrain.git
+git push -u origin master
+
+
+
+upstream generally refers to the original repo that you have forked from;
+(see also "Definition of “downstream” and “upstream”" for more on upstream term)
+
+origin is your fork: your own repo on GitHub, clone of the original repo of GitHub
+
+git remote add origin <remote repository URL>
+# Sets the new remote
+git remote -v
+# Verifies the new remote URL
+
+git push origin master
+# Pushes the changes in your local repository up to the remote repository you specified as the origin
+
+git remote add creates a remote, which is a shorthand name for another repository.  git branch --set-upstream-to sets a branch to be tracked by the branch in the remote repository specified.
+
+What you are wanting to do is track a remote branch, which is done with git branch --set-upstream-to or more simply git branch -u.
+
+when you clone a repository from another, a remote is created named origin and the branch master is checked out. 
+The command to have your local branch master track the remote branch master is 
+    git branch -u origin/master, 
+and is executed from the local master branch.
+
+
++++++++++++++++++++++++++++++++++++++++++++++++
+
+…or create a new repository on the command line
+
+echo "# gittrain" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/yannhyu/gittrain.git
+git push -u origin master
+…or push an existing repository from the command line
+
+git remote add origin https://github.com/yannhyu/gittrain.git
+git push -u origin master

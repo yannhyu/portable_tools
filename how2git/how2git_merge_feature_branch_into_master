@@ -1,0 +1,47 @@
+
+git diff master..DEVHELP-86_Coverage_Insight
+
+git checkout master  (master is going to receive the merge content)
+
+git merge DEVHELP-86_Coverage_Insight
+
+git log -2 --oneline
+
+git br --merged
+
+(delete the feature branch when done)
+
+You can delete a merged local branch with:
+git branch -d branchname
+
+To delete it from the remote:
+git push --delete origin branchname
+
+git remote prune origin
+++++++++++++++++++++++++++++++++++++++++++++++
+
+yann.yu@mllxv-yu:payorintel$ git log -2 --oneline
+0b934e0 better formatting
+97b598e add logic for pat_proc_type
+yann.yu@mllxv-yu:payorintel$ git br
+  DEVHELP-86_Coverage_Insight
+* master
+yann.yu@mllxv-yu:payorintel$ git log DEVHELP-86_Coverage_Insight -2 --oneline
+0b934e0 better formatting
+97b598e add logic for pat_proc_type
+yann.yu@mllxv-yu:payorintel$ 
+
+yann.yu@mllxv-yu:payorintel$ git br --merged
+  DEVHELP-86_Coverage_Insight
+* master
+yann.yu@mllxv-yu:payorintel$
+
+yann.yu@mllxv-yu:payorintel$ git br -d DEVHELP-86_Coverage_Insight
+Deleted branch DEVHELP-86_Coverage_Insight (was 0b934e0).
+
+
+yann.yu@mllxv-yu:payorintel$ git push --delete origin DEVHELP-86_Coverage_Insight
+To https://yann.yu@version.medlytix.org/scm/med/payorintel.git
+ - [deleted]         DEVHELP-86_Coverage_Insight
+
+++++++++++++++++++++++++++++++++++++++++++++++

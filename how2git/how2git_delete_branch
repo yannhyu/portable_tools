@@ -1,0 +1,23 @@
+
+++++++++++++++++++++++++++++++++++
+To delete the remote branch use:
+
+git push origin --delete DEV-150_245_reader
+git push origin --delete CH_RT_plus_master
+
+++++++++++++++++++++++++++++++++++
+
+git push origin --delete CH_RT_PSS
+
+
+++++++++++++++++++++++++++++++++++
+
+Executive Summary
+
+$ git push origin --delete <branch_name>
+$ git branch -d <branch_name>
+Delete Local Branch
+
+To delete the local branch use:
+
+$ git branch -d branch_name

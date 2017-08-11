@@ -1,0 +1,42 @@
+yann.yu@mllxv-yu:how2ansible$ docker --version
+Docker version 1.12.6, build 78d1802
+yann.yu@mllxv-yu:how2ansible$ docker info
+Cannot connect to the Docker daemon. Is the docker daemon running on this host?
+yann.yu@mllxv-yu:how2ansible$ sudo -u airflow -i
+airflow@mllxv-yu:~$ docker info
+Containers: 13
+ Running: 0
+ Paused: 0
+ Stopped: 13
+Images: 353
+Server Version: 1.12.6
+Storage Driver: aufs
+ Root Dir: /var/lib/docker/aufs
+ Backing Filesystem: extfs
+ Dirs: 500
+ Dirperm1 Supported: true
+Logging Driver: json-file
+Cgroup Driver: cgroupfs
+Plugins:
+ Volume: local
+ Network: null host bridge overlay
+Swarm: inactive
+Runtimes: runc
+Default Runtime: runc
+Security Options: apparmor seccomp
+Kernel Version: 4.4.0-91-generic
+Operating System: Ubuntu 16.04.2 LTS
+OSType: linux
+Architecture: x86_64
+CPUs: 2
+Total Memory: 12.3 GiB
+Name: mllxv-yu
+ID: NBAM:6O4A:CZRN:FX4X:G4TJ:GFD6:YJP5:EJRN:KROL:SZUX:YU57:PUV4
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Registry: https://index.docker.io/v1/
+WARNING: No swap limit support
+Insecure Registries:
+ 127.0.0.0/8
+airflow@mllxv-yu:~$ 

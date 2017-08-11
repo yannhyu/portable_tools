@@ -1,0 +1,9 @@
+sudo add-apt-repository ppa:git-core/ppa -y
+sudo apt-get update
+sudo apt-get install git -y
+git --version
+As of Dec 2014, I got git 2.2.0 that way, while the version in the Ubuntu Trusty repositories was 1.9.1. As of August 2016, I get v2.9.3.
+
+Note that add-apt-repository is installed via:
+
+sudo apt-get install python-software-properties software-properties-common

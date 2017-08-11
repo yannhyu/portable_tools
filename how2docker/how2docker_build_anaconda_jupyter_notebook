@@ -1,0 +1,14 @@
+$ docker pull continuumio/anaconda3
+
+Next, we can run the Anaconda image with Docker and start an interactive shell:
+$ docker run -i -t continuumio/anaconda3 /bin/bash
+
+Once the Docker container is running, we can start an interactive Python shell, install additional conda packages or run Python applications.
+
+Alternatively, we can start a Jupyter Notebook server with Anaconda from a Docker image:
+
+$ docker run -i -t -p 8888:8888 continuumio/anaconda3 /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser"
+
+
+http://localhost:8888
+

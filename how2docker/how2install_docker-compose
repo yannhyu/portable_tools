@@ -1,0 +1,40 @@
+
+
+sudo curl -o /usr/local/bin/docker-compose -L "https://github.com/docker/compose/releases/download/1.9.0/docker-compose-$(uname -s)-$(uname -m)"
+
+sudo chmod +x /usr/local/bin/docker-compose
+
+docker-compose -v
+docker-compose --version
+
+++++++++++++++++++++++++++++++++++++++++++++++++
+
+mkdir hello-world
+cd hello-world
+
+nano docker-compose.yml
+
+docker images
+
+docker-compose up
+
+docker ps
+
+docker ps -a
+
+docker rm 06069fd5ca23
+docker rm helloworld_my-test_1
+
+docker rmi hello-world
+
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++
+sudo curl -o /usr/local/bin/docker-compose -L "https://github.com/docker/compose/releases/download/1.8.1/docker-compose-$(uname -s)-$(uname -m)"
+++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+curl -L https://github.com/docker/compose/releases/download/1.9.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose

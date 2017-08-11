@@ -1,0 +1,43 @@
+By default, git will update file permissions if you change them.
+
+If you don't see any changes when modifying permission, you probably have a configuration in git which ignore file mode.
+
+Look into your project, in the .git folder for the config file and you should see something like this:
+
+[core]
+    filemode = false
+    
+You can either change it to true in your favorite text editor, or run:
+git config core.filemode true
+
+Then, you should be able to commit normally your files. It will only commit the permission changes.
+
+
++++++++++++++++++++++++++++++++++++++++
+
+git add --chmod=+x -- afile
+git commit -m"Executable!"
+
++++++++++++++++++++++++++++++++++++++++
+
+git add foo.sh
+git update-index --chmod=+x foo.sh
+git commit -m"Executable!"
+
++++++++++++++++++++++++++++++++++++++++
+
+touch foo.sh
+
+git add foo.sh
+
+git ls-files --stage
+100644 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 0       foo.sh
+As you note, after adding, the mode is 0644 (ie, not executable). However, we can mark it as executable before committing:
+
+git update-index --chmod=+x foo.sh
+
+git ls-files --stage
+100755 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 0       foo.sh
+And now the file is mode 0755 (executable).
+
+git commit -m"Executable!"

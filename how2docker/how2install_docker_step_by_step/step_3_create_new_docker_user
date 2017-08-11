@@ -1,0 +1,38 @@
+create a new user 'safari'
+++++++++++++++++++++++++++
+
+log in as root [ su joy]
+
+adduser safari [ adventure ]
+
+usermod -aG sudo safari
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+to test:
+
+su - safari
+yann.yu@zzyu02:~$ sudo -u safari -i
+
+sudo ls -la /root
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+add user safari to the docker group:
+sudo usermod -aG docker safari
+grep 'docker' /etc/group
+
+yann.yu@zzyu01:~$ grep 'docker' /etc/group
+docker:x:998:safari
+yann.yu@zzyu01:~$
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+log in as safari
+
+sudo groupadd docker
+
+sudo gpasswd -a ${USER} docker
+
+Restart the Docker daemon:
+sudo service docker restart

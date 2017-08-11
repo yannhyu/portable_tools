@@ -1,0 +1,40 @@
+
+git checkout myfeaturebranch
+git pull origin master
+
++++++++++++++++++++++++++++++++
+
+git checkout master
+git pull origin master
+git checkout myfeaturebranch
+git merge master
+
+++++++++++++++++++++++++++++++
+
+git checkout dev
+git pull origin dev
+git checkout myfeaturebranch
+git merge dev
+
+++++++++++++++++++++++++++++++
+
+Remember, a pull is a fetch and a merge. * `git pull origin master` fetches commits from the master branch of the origin remote (into the local origin/master branch), and then it merges origin/master into the branch you currently have checked out.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+git pull is the same as git fetch + git merge
+
+The command
+
+git pull <remote> <branch>
+is really just the same as
+
+git fetch <remote>
+git merge <remote>/<branch>
+So there is no practical difference between
+
+git pull origin master
+and
+
+git fetch origin
+git merge origin/master

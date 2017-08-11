@@ -1,0 +1,59 @@
+airflow@mllxv-yu:~/docker-airflow$ docker-compose ps
+          Name                         Command               State                     Ports                    
+---------------------------------------------------------------------------------------------------------------
+dockerairflow_flower_1      ./entrypoint.sh flower           Up      0.0.0.0:5555->5555/tcp, 8080/tcp, 8793/tcp 
+dockerairflow_postgres_1    /docker-entrypoint.sh postgres   Up      0.0.0.0:5432->5432/tcp                     
+dockerairflow_redis_1       docker-entrypoint.sh redis ...   Up      0.0.0.0:6379->6379/tcp                     
+dockerairflow_scheduler_1   ./entrypoint.sh scheduler        Up      5555/tcp, 8080/tcp, 8793/tcp               
+dockerairflow_webserver_1   ./entrypoint.sh webserver        Up      5555/tcp, 0.0.0.0:8080->8080/tcp, 8793/tcp 
+dockerairflow_worker_1      ./entrypoint.sh worker           Up      5555/tcp, 8080/tcp, 0.0.0.0:8793->8793/tcp 
+
+
++++++++++++++++++++++++++++++++++++++++++++++
+
+docker-compose up -d
+
+docker-compose down
+
+docker-compose build
+
+docker-compose ps -q
+docker-compose ps
+
++++++++++++++++++++++++++++++++++++++++++++++
+
+docker-compose kill -s SIGINT
+
++++++++++++++++++++++++++++++++++++++++++++++
+
+For Python to log on your terminal/command line/console, when executed from a docker container, you should have this variable set in your docker-compose.yml
+
+  environment:
+    - PYTHONUNBUFFERED=0
+This is also a valid solution if you're using print to debug.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Using unbuffered output with
+
+CMD ["python","-u","main.py"]
+instead of
+
+CMD ["python","main.py"]
+solves the problem; you can see the output (both, stderr and stdout) via
+
+docker logs myapp
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+to get docker-compose to always start fresh images:
+
+docker-compose up --force-recreate is one option, but if you're using it for CI, I would start the build with docker-compose rm -f to stop and remove the containers and volumes (then follow it with pull and up).
+
+This is what I use:
+
+docker-compose rm -f
+docker-compose pull
+docker-compose up --build -d
+# Run some tests
+./tests
+docker-compose stop -t 1

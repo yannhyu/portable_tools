@@ -1,0 +1,32 @@
+airflow@mllxv-yu:~/pythoncode/containerize-python-web-app$ ls
+Dockerfile
+airflow@mllxv-yu:~/pythoncode/containerize-python-web-app$ 
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+docker build -t my_python_webapp_img .
+
+sudo docker run -name my_application_instance -p 80:80 -i -t my_python_webapp_img
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+To start using it, build a new container image with the following:
+
+sudo docker build -t my_application_img . 
+
+
+sudo docker run -name my_application_instance -p 80:80 -i -t my_application_img
+
+Example:
+
+# Usage: Visit http://[my droplet's ip]
+http://95.85.10.236/
+Sample Response:
+
+Hello World!
+
+++++++++++++++++++++++++++++++++++
+
+W: The repository 'http://archive.ubuntu.com/ubuntu main Release' does not have a Release file.
+E: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/main/universe/binary-amd64/Packages  404  Not Found [IP: 91.189.88.161 80]
+E: Some index files failed to download. They have been ignored, or old ones used instead.

@@ -1,0 +1,34 @@
+Cannot connect to the Docker daemon. Is the docker daemon running on this host?
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+try log in as another user in the docker group:
+
+login as airflow [airflow]
+
+su - airflow
+sudo -u nobody zsh
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+service docker status
+
+yann.yu@mllxv-yu:~$ service docker status
+● docker.service - Docker Application Container Engine
+   Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+   Active: active (running) since Mon 2016-12-12 16:39:14 EST; 18h ago
+     Docs: https://docs.docker.com
+ Main PID: 1231 (docker)
+    Tasks: 54
+   Memory: 90.2M
+      CPU: 13.588s
+   CGroup: /system.slice/docker.service
+           ├─1231 /usr/bin/docker daemon -H fd://
+           ├─4457 containerd -l /var/run/docker/libcontainerd/docker-containerd.sock --runtime runc --start-timeout 2m
+           ├─4764 docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 15672 -container-ip 172.17.0.2 -container-port 15672
+           ├─4772 docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 5672 -container-ip 172.17.0.2 -container-port 5672
+           ├─4777 containerd-shim 156e17e89cbdb82aa99f5cdc9d671a79f3affdf6f7e4311321aa8ba97ef5dc1e /var/run/docker/libcontainerd/156e17e89cbdb82aa99f5cdc9d671a79f3affdf
+           ├─4889 docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 5555 -container-ip 172.17.0.5 -container-port 5555
+           └─4910 containerd-shim e65d6825460c5f6434f0ffdf82bfc5074c176fb840dc134b102fc26eee57c666 /var/run/docker/libcontainerd/e65d6825460c5f6434f0ffdf82bfc5074c176fb
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+uname -a
+uname -r

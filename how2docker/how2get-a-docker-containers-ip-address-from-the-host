@@ -1,0 +1,17 @@
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container_name_or_id
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+airflow@mllxv-yu:~/workspace/etl-design$ docker-compose-1.9.0 ps
+       Name                      Command               State           Ports          
+-------------------------------------------------------------------------------------
+etldesign_db_1        /docker-entrypoint.sh postgres   Up      0.0.0.0:5432->5432/tcp 
+etldesign_monitor_1   flower -A celery_config -- ...   Up      0.0.0.0:5555->5555/tcp 
+etldesign_redis_1     docker-entrypoint.sh redis ...   Up      6379/tcp               
+etldesign_web_1       python app.py                    Up      0.0.0.0:5000->5000/tcp 
+etldesign_worker_1    /bin/sh -c celery -A celer ...   Up                             
+airflow@mllxv-yu:~/workspace/etl-design$ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' etldesign_worker_1
+172.18.0.6
+airflow@mllxv-yu:~/workspace/etl-design$ 

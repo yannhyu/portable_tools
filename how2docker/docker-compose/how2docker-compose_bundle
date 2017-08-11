@@ -1,0 +1,31 @@
+docker-compose bundle
+
+Usage: bundle [options]
+
+Options:
+    --push-images              Automatically push images for any services
+                               which have a `build` option specified.
+
+    -o, --output PATH          Path to write the bundle file to.
+                               Defaults to "<project name>.dab".
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Developers can use Docker Compose 1.8 to create DABs from docker-compose.yml files and ops can use Docker 1.12 to deploy apps by creating stacks of services from DABs.
+
+To create a DAB, a developer or CI system uses Compose to package up an app:
+
+$ docker-compose build
+...
+$ docker-compose push
+...
+$ docker-compose bundle
+Wrote bundle to example.dab
+
+The ops team can then deploy the DAB on Docker 1.12:
+
+$ docker deploy example
+Loading bundle from example.dab
+Creating network app-network
+Creating service example-db
+Creating service example-web                               

@@ -1,0 +1,41 @@
+Installing Docker on Ubuntu 16.04
+
+sudo -s
+
+uname -a
+uname -r
+
+cat /etc/lsb-release
+
+apt-get update
+apt-get upgrade
+
+apt-get install -y docker.io
+systemctl start docker
+systemctl enable docker
+
+docker version
+
+docker run hello-world
+docker search ubuntu
+docker pull ubuntu
+
+docker images
+
+docker create ubuntu:16.04
+docker run -i -t ubuntu:16.04 /bin/bash
+docker run -i -t -d ubuntu:16.04 /bin/sh -c "while true; do echo hello world; sleep 1; done"
+
+docker ps
+
+docker logs NAMES/ContainerID
+
+docker exec -i -t NAMES/ContainerID /bin/bash
+
+docker stop NAME/ContainerID
+
+docker start NAME/ContainerID
+
+docker rm NAME/ContainerID
+
+

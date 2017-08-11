@@ -1,0 +1,12 @@
+echo "# breadnbutter" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/yannhyu/breadnbutter.git
+git push -u origin master
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+airflow@mllxv-yu:~/workspace/etl-design$ git config --global user.email "yann.yu@medlytix.com"
+airflow@mllxv-yu:~/workspace/etl-design$ git config --global user.name "Yann Yu"

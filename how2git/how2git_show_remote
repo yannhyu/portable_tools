@@ -1,0 +1,13 @@
+yann.yu@mllxv-yu:payorintel$ git remote show origin
+* remote origin
+  Fetch URL: https://yann.yu@version.medlytix.org/scm/med/payorintel.git
+  Push  URL: https://yann.yu@version.medlytix.org/scm/med/payorintel.git
+  HEAD branch: master
+  Remote branches:
+    DEV-127_166_Release_File tracked
+    DEV-150_245_reader       tracked
+    feature/201601b          tracked
+    master                   tracked
+
+
+

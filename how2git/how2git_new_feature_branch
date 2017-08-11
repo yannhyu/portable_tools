@@ -1,0 +1,42 @@
+git checkout -b DEV-150_245_reader
+
+git push --set-upstream origin DEV-150_245_reader
+
+git branch -vv
+
+git pull origin master
+
+
+++++++++++++++++++++++++++++++++++++++++++++++
+
+git checkout -b DEV-127_166_Release_File
+
+git remote
+
+git push --set-upstream origin DEV-127_166_Release_File
+
+yann.yu@MLMSD-YU MINGW64 /dev/medlytix/payorintel (DEV-127_166_Release_File)
+$ git push --set-upstream origin DEV-127_166_Release_File
+Total 0 (delta 0), reused 0 (delta 0)
+remote:
+remote: Create pull request for DEV-127_166_Release_File:
+remote:   https://version.medlytix.org/projects/MED/repos/payorintel/compare/commits?sourceBranch=refs/heads/DEV-127_166_Release_File
+remote:
+To https://version.medlytix.org/scm/med/payorintel.git
+ * [new branch]      DEV-127_166_Release_File -> DEV-127_166_Release_File
+Branch DEV-127_166_Release_File set up to track remote branch DEV-127_166_Release_File from origin.
+
+
+
+++++++++++++++++++++++++++
+
+git checkout -b iss53
+
+++++++++++++++++++++++++++
+git checkout -b DEVHELP-86_Coverage_Insight
+
+git push --set-upstream origin DEVHELP-86_Coverage_Insight
+git push -u
+git branch --set-upstream-to=origin/DEVHELP-86_Coverage_Insight
+
+

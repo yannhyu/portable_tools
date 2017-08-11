@@ -1,0 +1,9 @@
+git co -b feat-xyz
+hack hack
+git ci
+hack some more
+git ci
+git co master
+git merge feat-xyz
+smoke test
+git br -d feat-xyzbr 

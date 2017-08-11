@@ -1,0 +1,9 @@
+yann.yu@zzyu01:~$ sudo -u safari -i
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+safari@zzyu01:~$ docker --version
+Docker version 1.12.1, build 23cf638
+safari@zzyu01:~$ docker-compose --version
+docker-compose version 1.12.0, build b31ff33
+safari@zzyu01:~$

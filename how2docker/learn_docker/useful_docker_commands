@@ -1,0 +1,17 @@
+docker run -p 4567:4567 -d rickfast/hello-oreilly-http
+docker run -i -t [ image ] /bin/bash
+
+docker run -d -P --name redis redis
+docker run --link redis -i -t ubuntu /bin/bash
+docker run -d --link redis --name web rickfast/oreilly-simple-web-app
+docker kill web
+docker rm web
+docker run -p 4567:4567 -d --link redis --name web rickfast/oreilly-simple-web-app
+docker run -P -d --link redis --name web rickfast/oreilly-simple-web-app
+docker port web
+docker ps -l
+docker inspect redis
+docker run -d -e "REDIS_PORT_6379_TCP_ADDR=172.17.0.4" --name web -p 4567:4567 rickfast/oreilly-simple-web-app
+docker logs -f web
+
+

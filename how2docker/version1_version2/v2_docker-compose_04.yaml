@@ -1,0 +1,21 @@
+version: ‘2’
+services:
+ dbpostgres:
+  image: postgres:9.4 #define the image to get
+  volumes:
+   — pgvolume:/var/lib/postgresql/data #using the declared volume
+  ports:
+   — “5432:5432”
+  express-app-container:
+  build: .
+  image: express-app #assign a name to the built image
+  depends_on:
+   — dbpostgres #wait for dbpostgres to be started, not for ready
+  ports:
+   — “3000:3000”
+  volumes:
+   — ./:/app
+volumes:
+ pgvolume:
+  external:
+   name: nodedocker_pgvolume

@@ -1,0 +1,39 @@
+ssh zzyu02
+sudo -u etl -i
+etl@zzyu02:~$
+
+++++++++++++++++++++++++++++++++++++++++
+
+docker run rickfast/hello-oreilly
+
+++++++++++++++++++++++++++++++++++++++++
+etl@zzyu02:~$ docker run rickfast/hello-oreilly
+Unable to find image 'rickfast/hello-oreilly:latest' locally
+latest: Pulling from rickfast/hello-oreilly
+
+8f4ec95ceaee: Already exists
+a3ed95caeb02: Pull complete
+Digest: sha256:234ef637fd240a86c366bb4ca0c37deb8542318fe795c38f74a5ec7440315248
+Status: Downloaded newer image for rickfast/hello-oreilly:latest
+Hello O'Reilly!
+etl@zzyu02:~$
+
++++++++++++++++++++++++++++++++++++++++++
+
+add user to the docker group so that we can use docker directly without sudo:
+
+sudo usermod -aG docker [ username ]
+
++++++++++++++++++++++++++++++++++++++++++
+
+docker run -p 4567:4567 -d rickfast/hello-oreilly-http
+
++++++++++++++++++++++++++++++++++++++++++
+etl@zzyu02:~$ docker run -p 4567:4567 -d rickfast/hello-oreilly-http
+f3a538e4b0f25e1816747a2c9822c14a312656ba05aabd2c663cc8a47814b26d
+etl@zzyu02:~$ curl http://localhost:4567
+Hello O'Reilly!etl@zzyu02:~$
+
++++++++++++++++++++++++++++++++++++++++++
+
+

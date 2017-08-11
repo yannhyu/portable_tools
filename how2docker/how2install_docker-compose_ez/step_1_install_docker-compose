@@ -1,0 +1,14 @@
+https://github.com/docker/compose/releases/download/1.12.0/docker-compose-Linux-x86_64
+
+curl -L https://github.com/docker/compose/releases/download/1.12.0/docker-compose-Linux-x86_64 > /tmp/docker-compose
+chmod +x /tmp/docker-compose
+sudo mv /tmp/docker-compose /usr/local/bin
+
+++++++++++++++++++++++++++++++++++++
+
+Installing Docker Compose v1.7.1 (copy / paste this into a terminal)
+
+curl -L https://github.com/docker/compose/releases/download/1.7.1/docker-compose-Linux-x86_64 > \
+  /tmp/docker-compose && \
+  chmod +x /tmp/docker-compose &&
+  sudo mv /tmp/docker-compose /usr/local/bin

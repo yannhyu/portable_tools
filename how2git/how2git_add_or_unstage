@@ -1,0 +1,26 @@
+git add sql/transactions/runtime/create_funcs_batch_temp_client.sql
+
+git reset HEAD sql/transactions/runtime/create_funcs_batch_temp_client.sql
+
+
+use "git reset HEAD <file>..." to unstage
+
+++++++++++++++++++++++++++++++
+
+You can use
+
+git reset
+
+without any file name to unstage all due changes. This can come in handy when there are too many files to be listed one by one in a reasonable amount of time.
+
+
+to undo:
+git add .
+
+use:
+git reset
+
++++++++++++++++++++++++++++++++
+
+git rm --cached <added_file_to_undo>
+ 

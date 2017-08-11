@@ -1,0 +1,14 @@
+payorintel.svc@devpayorintel02:/opt/medlytix/payorintel$ git pull
+Updating 6c62838..2ebdae4
+error: The following untracked working tree files would be overwritten by merge:
+        bin/insurance2/generate_continuum_monthly_found_accounts.py
+Please move or remove them before you can merge.
+Aborting
+
+++++++++++++++++++++++++++++++++++++++++
+
+rm bin/insurance2/generate_continuum_monthly_found_accounts.py
+
+Do the pull
+
+git pull

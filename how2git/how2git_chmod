@@ -1,0 +1,24 @@
+git update-index --chmod=+x foo.sh
+
+yann.yu@mllxv-yu:payorintel$ git update-index --chmod=+x bin/insurance0/read_245_lifepoint_insurance0.py 
+yann.yu@mllxv-yu:payorintel$ git add bin/insurance0/read_245_lifepoint_insurance0.py
+
+
+++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+git add bin/insurance2/generate_166_release_file_to_athena.py
+
+git update-index --chmod=+x bin/insurance2/generate_166_release_file_to_athena.py
+
+
+++++++++++++++++++++++++++++++++++++++++++++++
+git update-index after git add
+
+\Temp\TestRepo>git update-index --chmod=+x foo.sh
+
+git update-index --chmod=+x bin/insurance0/read_5088_rady_insuranc0.py
++++++++++++++++++++++++++++++++++++++
+yann.yu@mllxv-yu:payorintel$ ll bin/insurance0/read_5088_rady_insuranc0.py
+-rw-rw-r-- 1 yann.yu yann.yu 1229 Nov 15 12:09 bin/insurance0/read_5088_rady_insuranc0.py

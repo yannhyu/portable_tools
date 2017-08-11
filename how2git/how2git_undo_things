@@ -1,0 +1,35 @@
+yann.yu@MLMSD-YU ~/dev/breadnbutter (master) $ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        git_do_not_stage_me
+        git_stage_me
+
+nothing added to commit but untracked files present (use "git add" to track)
+yann.yu@MLMSD-YU ~/dev/breadnbutter (master) $ git add --all
+yann.yu@MLMSD-YU ~/dev/breadnbutter (master) $ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   git_do_not_stage_me
+        new file:   git_stage_me
+
+yann.yu@MLMSD-YU ~/dev/breadnbutter (master) $ git reset HEAD git_do_not_stage_me
+yann.yu@MLMSD-YU ~/dev/breadnbutter (master) $ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   git_stage_me
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        git_do_not_stage_me
+
+yann.yu@MLMSD-YU ~/dev/breadnbutter (master) $

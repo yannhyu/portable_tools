@@ -1,0 +1,23 @@
+1. Make sure that exited containers are deleted.
+docker rm -v $(docker ps -a -q -f status=exited)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2. Remove unwanted ‘dangling’ images.
+docker rmi $(docker images -f "dangling=true" -q)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+3. Still not enough space? What is this ‘vfs’ directory?
+docker volume rm $(docker volume ls -qf dangling=true)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+4. That’s all good. Do I have to do this everytime?
+
+Then next question we had was while all that is good, we had to manually run it whenever our servers get filled up. So we decided to automate it. And it is a breeze with crontabs. Just drop all of the above commands into a file under /etc/cron.daily/ directory. We created a file named docker-clean in that directory with execute rights. The file contains the following.
+
+docker rm -v $(docker ps -a -q -f status=exited)
+
+docker rmi $(docker images -f "dangling=true" -q)
+
+docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --rm martin/docker-cleanup-volumes
+Linux will run this job every day automatically and clean up after Docker. I personally think that this should be baked into the docker daemon as a housekeeping feature. Nevertheless, kudos to docker team for building such an awesome tool.do

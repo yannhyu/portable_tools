@@ -1,0 +1,29 @@
+
+Solution 2: Disable Hyper-V virtualization
+
+Run cmd.exe as Administrator
+Execute:
+1
+dism.exe /Online /Disable-Feature:Microsoft-Hyper-V
+Reboot computer
+Another way:
+
+Open Control Panel
+Go to Program section -> Turn Windows features on or off
+Disable Hyper-V 
+
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+VT-x is not available (VERR_VMX_NO_VMX).
+VT-x is not available (VERR_VMX_NO_VMX).
+
+
+Result Code: 
+E_FAIL (0x80004005)
+Component: 
+ConsoleWrap
+Interface: 
+IConsole {872da645-4a9b-1727-bee2-5585105b9eed}

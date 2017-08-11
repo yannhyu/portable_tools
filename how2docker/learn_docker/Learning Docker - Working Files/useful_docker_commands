@@ -1,0 +1,51 @@
+docker run rickfast/hello-oreilly
+docker run -p 4567:4567 -d rickfast/hello-oreilly-http
+
++++++++++++++++++++++++++++++++++++++++++++++
+
+for non-linux os:
+
+docker-machine ls
+docker-machine create --driver virtualbox rick
+docker-machine env rick
+
+docker ps
+eval $(docker-machine env rick)
+docker ps
+
+docker run -p 4567:4567 -d rickfast/hello-oreilly-http
+
+docker-machine ip rick
+
+docker-machine stop rick
+
+docker-machine rm rick
+
+++++++++++++++++++++++++++++++++++++++++++++++
+
+docker run ubuntu pwd
+docker run -i -t ubuntu /bin/bash
+
+etl@zzyu02:~$ docker run -i -t ubuntu /bin/bash
+root@e3f8d7422f51:/# hostname
+e3f8d7422f51
+root@e3f8d7422f51:/# ps -A
+  PID TTY          TIME CMD
+    1 ?        00:00:00 bash
+   16 ?        00:00:00 ps
+root@e3f8d7422f51:/#
+
+++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+
+
+
+
+
+
+
+
+

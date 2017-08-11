@@ -1,0 +1,31 @@
+yann.yu@zzyu02:~$ sudo -u airflow -i
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+airflow@zzyu02:~$ docker search apache
+NAME                        DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
+eboraas/apache-php          PHP5 on Apache (with SSL support), built o...   106                  [OK]
+eboraas/apache              Apache (with SSL support), built on Debian      64                   [OK]
+webdevops/php-apache        Apache with PHP-FPM (based on webdevops/php)    25                   [OK]
+bitnami/apache              Bitnami Apache Docker Image                     23                   [OK]
+nimmis/apache-php5          This is docker images of Ubuntu 14.04 LTS ...   20                   [OK]
+chriswayg/apache-php        Apache 2.4 web server with PHP 5.6 based o...   11                   [OK]
+webdevops/php-apache-dev    PHP with Apache for Development (eg. with ...   9                    [OK]
+apache/nutch                Apache Nutch                                    9                    [OK]
+webgriffe/php-apache-base   Dockerized environment for PHP web develop...   6                    [OK]
+webdevops/apache            Apache container                                5                    [OK]
+apache/marmotta             Apache Marmotta                                 4                    [OK]
+appcontainers/apache        Centos/Debian Based Customizable Apache Co...   3                    [OK]
+lephare/apache              Apache container                                3                    [OK]
+webdevops/hhvm-apache       Apache with HHVM                                2                    [OK]
+nimmis/apache               This is docker images of Ubuntu 14.04 LTS ...   2                    [OK]
+socialengine/php-apache     This is an image with PHP, Composer, Apach...   2                    [OK]
+harisekhon/apache-drill     Apache Drill, opens Drill shell (tags 0.7 ...   2                    [OK]
+mwienk/php5.6-apache        PHP 5.6 with apache and common dependencie...   1                    [OK]
+apache/thrift               Apache Thrift                                   1                    [OK]
+drupaldocker/apache         APACHE for Drupal                               0                    [OK]
+flhosp/apache               Apache on CentOS.                               0                    [OK]
+cloudposse/apache           Base apache suitable for serving static co...   0                    [OK]
+aquila/apache               Apache base image                               0                    [OK]
+webdevops/apache-dev        Apache in development mode (assets or reso...   0                    [OK]
+envstacks/apache            Some description about apache image             0                    [OK]

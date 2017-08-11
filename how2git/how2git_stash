@@ -1,0 +1,8 @@
+there are cases in which your local changes do conflict with the upstream changes, and git pull refuses to overwrite your changes. In such a case, you can stash your changes away, perform a pull, and then unstash, like this:
+
+$ git pull
+ ...
+file foobar not up to date, cannot merge.
+$ git stash
+$ git pull
+$ git stash pop

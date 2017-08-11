@@ -1,0 +1,16 @@
+$ git pull
+Password for 'https://yann.yu@version.medlytix.org':
+fatal: The permissions on your socket directory are too loose; other
+users may be able to read your cached credentials. Consider running:
+
+        chmod 0700 /home/yann.yu/.git-credential-cache
+fatal: cache daemon did not start:
+Already up-to-date.
+
+
+fatal: The permissions on your socket directory are too loose; other
+users may be able to read your cached credentials. Consider running:
+
+        chmod 0700 /home/yann.yu/.git-credential-cache
+fatal: cache daemon did not start:
+

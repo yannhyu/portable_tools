@@ -1,0 +1,27 @@
+
+mkdir breadnbutter
+cd breadnbutter
+git init
+git remote add -f origin https://github.com/yannhyu/breadnbutter.git
+git config core.sparseCheckout true
+echo "Big_Ideas_Little_Python_Code/" >> .git/info/sparse-checkout
+git pull origin master
+
+++++++++++++++++++++++++++++++++++++++
+
+mkdir <repo>
+cd <repo>
+git init
+git remote add -f origin <url>
+
+This creates an empty repository with your remote, and fetches all objects but doesn't check them out. Then do:
+
+git config core.sparseCheckout true
+Now you need to define which files/folders you want to actually check out. This is done by listing them in .git/info/sparse-checkout, eg:
+
+echo "some/dir/" >> .git/info/sparse-checkout
+echo "another/sub/tree" >> .git/info/sparse-checkout
+Last but not least, update your empty repo with the state from the remote:
+
+git pull origin master
+You will now have files "checked out" for some/dir and another/sub/tree on your file system (with those paths still), and no other paths present.

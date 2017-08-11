@@ -1,0 +1,24 @@
+https://nickjanetakis.com/blog/dockerize-a-flask-celery-and-redis-application-with-docker-compose
+
+http://ruddra.com/2016/11/14/docker-do-stuff-using-celery-using-redis-as-broker/
+
+http://ruddra.com/2016/08/14/docker-django-nginx-postgres/
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+yann.yu@zzyu02:~$ docker --version
+Docker version 1.12.1, build 23cf638
+yann.yu@zzyu02:~$ docker-compose --version
+docker-compose version 1.9.0, build 2585387
+yann.yu@zzyu02:~$
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Ensure Docker and Docker Compose are working
+You should see what I see, or something very similar:
+
+docker --version
+> Docker version 1.11.2, build b9f10c9
+
+docker-compose --version
+> docker-compose version 1.7.1, build 0a9ab35

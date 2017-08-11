@@ -1,0 +1,4 @@
+git checkout -b DEV-127_166_Release_File origin/DEV-127_166_Release_File
+
+
+git checkout -b test remote-name/test

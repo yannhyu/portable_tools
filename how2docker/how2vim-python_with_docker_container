@@ -1,0 +1,37 @@
+alias python-vim='docker run -it --rm -v $(pwd):/src fedeg/python-vim:latest'
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+A simple bash alias
+
+
+
+alias python-vim='docker run -it --rm -v $(pwd):/src fedeg/python-vim:latest'
+
+Install for specific python version:
+
+Change docker image tag
+
+
+
+Python 3 (latest, 3, 3.5, 3.5.2):
+
+alias python-vim='docker run -it --rm -v $(pwd):/src fedeg/python-vim:3'
+
+Python 2 (2, 2.7, 2.7.12):
+
+alias python-vim='docker run -it --rm -v $(pwd):/src fedeg/python-vim:2'
+
+Use instructions:
+
+python-vim
+
+
+
+
+
+++++++++++++++++++++++++++++++++++++++
+
+
+
+https://hub.docker.com/r/fedeg/python-vim/

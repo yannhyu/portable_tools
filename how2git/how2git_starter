@@ -1,0 +1,2 @@
+$ git config --global user.name "Yann Yu"
+$ git config --global user.email yann.yu@medlytix.com

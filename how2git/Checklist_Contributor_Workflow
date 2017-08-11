@@ -1,0 +1,28 @@
+Initial Setup
+
+Setup a GitHub account
+Fork the repository of the project
+Clone your fork locally
+$ git clone https://github.com/username/structWSF-Open-Semantic-Framework.git
+Enter the structWSF directory and add the upstream remote
+$ cd structWSF-Open-Semantic-Framework
+$ git remote add upstream https://github.com/structureddynamics/structWSF-Open-Semantic-Framework.git
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Keeping your master up-to-date!
+
+Once all this is done, you’ll be able to keep your local master up to date with the simple command:
+
+$ git checkout master
+$ git pull --rebase
+
+
+git pull = git fetch + git merge against tracking upstream branch;
+git pull --rebase = git fetch + git rebase against tracking upstream branch
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+In Git, as you probably know, you're encouraged to branch and merge.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
