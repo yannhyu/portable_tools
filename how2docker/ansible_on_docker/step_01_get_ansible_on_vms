@@ -1,0 +1,27 @@
+
+++++++++++++++++++++++++++++++++++++++++++++++++
+on trusty64:
+
+apt-add-repository ppa:ansible/ansible
+
+apt-get update
+
+apt-get install ansible
+
+++++++++++++++++++++++++++++++++++++++++++++++++
+
+on centos7:
+
+yum repolist
+
+wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+rpm -ivh epel-release-latest-7.noarch.rpm
+
+yum clean all
+
+yum repolist
+
+yum install ansible
+
+

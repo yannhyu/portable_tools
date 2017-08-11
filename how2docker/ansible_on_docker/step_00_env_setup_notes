@@ -1,0 +1,73 @@
+yann.yu@mllxv-yu:how2ansible$ sudo -u airflow -i
+airflow@mllxv-yu:~$ docker info
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+airflow@mllxv-yu:~/ansiblecode$ 
+
+airflow@mllxv-yu:~/ansiblecode$ ls
+centOS7  ubuntuTrusty64
+airflow@mllxv-yu:~/ansiblecode$ 
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+airflow@mllxv-yu:~/ansiblecode/ubuntuTrusty64$ docker pull nketchum/ubuntu-trusty64:base
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+docker run -d nketchum/ubuntu-trusty64:base
+
+airflow@mllxv-yu:~/ansiblecode/ubuntuTrusty64$ docker run -d nketchum/ubuntu-trusty64:base
+d66894debcf3406d001cd5ee5854e71dad34e900bded7d3f7d0191f59e37b223
+airflow@mllxv-yu:~/ansiblecode/ubuntuTrusty64$ docker ps
+CONTAINER ID        IMAGE                           COMMAND             CREATED             STATUS              PORTS               NAMES
+d66894debcf3        nketchum/ubuntu-trusty64:base   "/sbin/my_init"     7 seconds ago       Up 6 seconds        80/tcp              nostalgic_euler
+airflow@mllxv-yu:~/ansiblecode/ubuntuTrusty64$ docker exec -ti nostalgic_euler /bin/bash
+root@d66894debcf3:/# ls
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@d66894debcf3:/# 
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+docker pull openshift/base-centos7
+
+docker run -d openshift/base-centos7 tail -f /dev/null
+docker run -i -t image your-command
+docker run -i -t openshift/base-centos7 /bin/bash
+
++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+airflow@mllxv-yu:~/ansiblecode/centOS7$ docker ps
+CONTAINER ID        IMAGE                           COMMAND                  CREATED             STATUS              PORTS               NAMES
+4517e0fec289        openshift/base-centos7          "container-entrypoint"   9 seconds ago       Up 9 seconds                            nostalgic_kirch
+d66894debcf3        nketchum/ubuntu-trusty64:base   "/sbin/my_init"          48 minutes ago      Up 48 minutes       80/tcp              nostalgic_euler
+airflow@mllxv-yu:~/ansiblecode/centOS7$ docker exec -ti nostalgic_kirch /bin/bash
+bash-4.2# uname -a                                                                                                                                            
+Linux 4517e0fec289 4.4.0-91-generic #114-Ubuntu SMP Tue Aug 8 11:56:56 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
+bash-4.2# exit
+exit
+airflow@mllxv-yu:~/ansiblecode/centOS7$ docker exec -ti 4517e0fec289 /bin/bash
+bash-4.2# uname -a                                                                                                                                            
+Linux 4517e0fec289 4.4.0-91-generic #114-Ubuntu SMP Tue Aug 8 11:56:56 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
+bash-4.2# cat /etc/*elease
+CentOS Linux release 7.3.1611 (Core) 
+NAME="CentOS Linux"
+VERSION="7 (Core)"
+ID="centos"
+ID_LIKE="rhel fedora"
+VERSION_ID="7"
+PRETTY_NAME="CentOS Linux 7 (Core)"
+ANSI_COLOR="0;31"
+CPE_NAME="cpe:/o:centos:centos:7"
+HOME_URL="https://www.centos.org/"
+BUG_REPORT_URL="https://bugs.centos.org/"
+
+CENTOS_MANTISBT_PROJECT="CentOS-7"
+CENTOS_MANTISBT_PROJECT_VERSION="7"
+REDHAT_SUPPORT_PRODUCT="centos"
+REDHAT_SUPPORT_PRODUCT_VERSION="7"
+
+CentOS Linux release 7.3.1611 (Core) 
+CentOS Linux release 7.3.1611 (Core) 
+bash-4.2# 
+
