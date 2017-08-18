@@ -1,0 +1,50 @@
+https://github.com/mrosata/packt-mastering-fp
+
++++++++++++++++++++++++++++++++++++++
+setup node and yarn:
+
+Install Using NVM
+    sudo apt-get update
+    sudo apt-get install build-essential libssl-dev
+
+curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh -o install_nvm.sh
+
+nano install_nvm.sh
+
+bash install_nvm.sh
+
+source ~/.profile
+
+To find out the versions of Node.js that are available for installation, you can type:
+
+    nvm ls-remote
+
+
+nvm install 6.11.2
+
+nvm use 6.11.2
+
+node -v
+
+If you have multiple Node.js versions, you can see what is installed by typing:
+
+    nvm ls
+    
+
++++++++++++++++++++++++++++++++++++++++
+
+https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04
+
++++++++++++++++++++++++++++++++++++++++
+
+On Ubuntu Linux, you can install Yarn via Debian package repository. You will first need to configure the repository:
+
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list    
+
+Then you can simply:
+
+sudo apt-get update && sudo apt-get install yarn
+
+++++++++++++++++++++++++++++++++++++++++
+

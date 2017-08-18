@@ -1,0 +1,14 @@
+git clone https://github.com/mrosata/packt-mastering-fp.git mastering-fp
+
+cd mastering-jp
+
+git checkout volume-one
+
+# using yarn, installation is one simple command:
+yarn
+
+
+When the install is complete, you should be able to run the dev server on http://localhost:5000.
+
+# Start dev server through yarn
+yarn serve
